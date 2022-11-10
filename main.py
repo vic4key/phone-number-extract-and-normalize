@@ -4,7 +4,10 @@ def extract_phone_numbers(text: str):
 	''' Extract phone numbers from text
 	'''
 	result = []
-	# your code here
+	try:
+		tmp = phonenumbers.parse(text, "VN")
+		result.append(f"0{tmp.national_number}")
+	except Exception as e: pass
 	return result
 
 def test():
@@ -123,11 +126,11 @@ def test():
 
 	for text in list_test_10_digits:
 		phone_numbers = extract_phone_numbers(text)
-		assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567"
+		assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567", text
 
 	for text in list_test_11_digits:
 		phone_numbers = extract_phone_numbers(text)
-		assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567"
+		assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567", text
 
 if __name__ == "__main__":
 	test()
