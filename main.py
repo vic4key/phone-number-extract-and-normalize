@@ -1,13 +1,22 @@
 import phonenumbers
 
-def extract_phone_numbers(text: str):
-	''' Extract phone numbers from text
+def normalize_phone_number(text: str) -> str:
+	''' Normalize a phone number to standard international format.
+	Eg. 0981234567
 	'''
-	result = []
+	result = ""
 	try:
 		tmp = phonenumbers.parse(text, "VN")
-		result.append(f"0{tmp.national_number}")
+		result = f"0{tmp.national_number}"
 	except Exception as e: pass
+	return result
+
+def extract_phone_numbers(text: str) -> list:
+	''' Extract phone numbers from text then normalize them to standard international format.
+	Eg. ["0981234567"]
+	'''
+	result = []
+	# your code here
 	return result
 
 def test():
@@ -125,12 +134,12 @@ def test():
 	]
 
 	for text in list_test_10_digits:
-		phone_numbers = extract_phone_numbers(text)
-		assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567", text
+		phone_number = normalize_phone_number(text)
+		assert phone_number == "0981234567", text
 
 	# for text in list_test_11_digits:
-	# 	phone_numbers = extract_phone_numbers(text)
-	# 	assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567", text
+	# 	phone_number = normalize_phone_number(text)
+	# 	assert phone_number == "0981234567", text
 
 	print("ALL TEST CASES ARE PASSED")
 
