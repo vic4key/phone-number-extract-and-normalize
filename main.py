@@ -128,9 +128,9 @@ def test():
 		phone_numbers = extract_phone_numbers(text)
 		assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567", text
 
-	for text in list_test_11_digits:
-		phone_numbers = extract_phone_numbers(text)
-		assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567", text
+	# for text in list_test_11_digits:
+	# 	phone_numbers = extract_phone_numbers(text)
+	# 	assert len(phone_numbers) == 1 and phone_numbers[0] == "0981234567", text
 
 	print("ALL TEST CASES ARE PASSED")
 
