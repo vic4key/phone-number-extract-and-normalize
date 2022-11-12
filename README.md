@@ -4,8 +4,14 @@ Thư viện này tái sử dụng thư viện [python-phonenumbers ](https://git
 - Chuẩn hóa các kiểu viết số điện thoại của người dùng VN về dạng 10 số `0981234567`.
 - Tách tất cả số điện thoại trong văn bản và chuẩn hóa về dạng 10 số như trên.
 
-Sử dụng những hàm sau:
+Cài đặt (thêm vào project như một sub-module):
+```
+$ git submodule add https://github.com/vic4key/phone-number-extract-and-normalize.git vn_phone_number
+```
+
+Sử dụng:
 ```python
+from vn_phone_number import *
 normalize_phone_number(text: str) -> str
 extract_phone_numbers(text: str) -> list
 ```
