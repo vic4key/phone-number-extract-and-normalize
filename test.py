@@ -4,7 +4,11 @@ def test():
 	''' Test function
 	'''
 
+	# Note: phone numbers that 11 digits are removed in VN several years ago
+	# so we don't need to test them
+
 	# SĐT 10 số
+
 	list_test_10_digits =\
 	[
 		# None
@@ -59,69 +63,21 @@ def test():
 		'(+84) 098-123-4567',
 	]
 
-	# SĐT 11 số
-	list_test_11_digits =\
-	[
-		# None
-		'01681234567',
-		'0168 123 4567',
-		'0168.123.4567',
-		'0168-123-4567',
-		# 098
-		'01681234567',
-		'0168 123 4567',
-		'0168.123.4567',
-		'0168-123-4567',
-		# 84
-		'841681234567',
-		'84 168 123 4567',
-		'84 168.123.4567',
-		'84 168-123-4567',
-		# 84 0168
-		'8401681234567',
-		'84 0168 123 4567',
-		'84 0168.123.4567',
-		'84 0168-123-4567',
-		# (84)
-		'(84)1681234567',
-		'(84) 168 123 4567',
-		'(84) 168.123.4567',
-		'(84) 168-123-4567',
-		# (84) 0168
-		'(84)01681234567',
-		'(84) 0168 123 4567',
-		'(84) 0168.123.4567',
-		'(84) 0168-123-4567',
-		# +84 168
-		'+8401681234567',
-		'+84 0168 123 4567',
-		'+84 0168.123.4567',
-		'+84 0168-123-4567',
-		# +84 0168
-		'+8401681234567',
-		'+84 0168 123 4567',
-		'+84 0168.123.4567',
-		'+84 0168-123-4567',
-		# (+84) 168
-		'(+84)01681234567',
-		'(+84) 0168 123 4567',
-		'(+84) 0168.123.4567',
-		'(+84) 0168-123-4567',
-		# (+84) 0168
-		'(+84)01681234567',
-		'(+84) 0168 123 4567',
-		'(+84) 0168.123.4567',
-		'(+84) 0168-123-4567',
-	]
+	list_test_10_digits_text_multi_lines =\
+		"\n".join(list_test_10_digits)
+
+	# SĐT 10 số in text multi-lines
 
 	for text in list_test_10_digits:
 		phone_number = normalize_phone_number(text)
 		assert phone_number == "0981234567", text
 
-	# for text in list_test_11_digits:
-	# 	phone_number = normalize_phone_number(text)
-	# 	assert phone_number == "0981234567", text
+	print("ALL TEST CASES ARE PASSED (LIST 10-DIGITS PHONE NUMBERS)")
 
-	print("ALL TEST CASES ARE PASSED")
+	phone_numbers = extract_phone_numbers(list_test_10_digits_text_multi_lines)
+	for phone_number in phone_numbers:
+		assert phone_number == "0981234567", phone_number
+
+	print("ALL TEST CASES ARE PASSED (LIST 10-DIGITS PHONE NUMBERS IN TEXT MULTI-LINES)")
 
 if __name__ == "__main__": test()
