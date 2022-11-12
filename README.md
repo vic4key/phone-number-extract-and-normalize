@@ -1,4 +1,4 @@
-# Phone Number VN library
+# VN Phone Number
 
 Thư viện này tái sử dụng thư viện [python-phonenumbers ](https://github.com/daviddrysdale/python-phonenumbers.git) để làm những việc sau:
 - Chuẩn hóa các kiểu viết số điện thoại của người dùng VN về dạng 10 số `0981234567`.
