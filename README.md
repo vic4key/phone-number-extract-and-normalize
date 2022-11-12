@@ -4,8 +4,14 @@ Thư viện này tái sử dụng thư viện [python-phonenumbers ](https://git
 - Chuẩn hóa các kiểu viết số điện thoại của người dùng VN về dạng 10 số `0981234567`.
 - Tách tất cả số điện thoại trong văn bản và chuẩn hóa về dạng 10 số như trên.
 
-Các kiểu viết đã được chuẩn hóa như danh sách dưới đây:
-```pycon
+Sử dụng những hàm sau:
+```python
+normalize_phone_number(text: str) -> str
+extract_phone_numbers(text: str) -> list
+```
+
+Một kiểu viết đã được chuẩn hóa ví dụ như dưới đây:
+```python
 # None
 981234567
 98 123 4567
