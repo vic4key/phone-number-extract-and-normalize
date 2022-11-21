@@ -31,7 +31,9 @@ def extract_phone_numbers(text: str) -> list:
 
 	groups = RegEx(text, R"([+-\. \(\)\d]+)")
 	for group in groups:
-		tmp = group.strip().replace(' ', '') # .replace('.', '').replace('-', '').replace('(', '').replace(')', '').replace(')', '')
+		tmp = ""
+		if type(group) is tuple: tmp = " ".join(group)
+		tmp = tmp.strip().replace(' ', '') # .replace('.', '').replace('-', '').replace('(', '').replace(')', '').replace(')', '')
 		if len(tmp) < 9: continue # 098.123.4567 # at least 9 digits - 2 for area code and 7 for international numbers
 		tmp = normalize_phone_number(tmp)
 		result.append(tmp)
