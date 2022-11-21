@@ -39,6 +39,7 @@ def extract_phone_numbers(text: str) -> list:
 		tmp = tmp.strip().replace(' ', '') # .replace('.', '').replace('-', '').replace('(', '').replace(')', '').replace(')', '')
 		if len(tmp) < 9: continue # 098.123.4567 # at least 9 digits - 2 for area code and 7 for international numbers
 		tmp = normalize_phone_number(tmp)
+		if len(tmp) == 0: continue
 		result.append(tmp)
 
 	return result
