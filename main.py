@@ -19,7 +19,9 @@ def normalize_phone_number(text: str) -> str:
 	result = ""
 	try:
 		tmp = phonenumbers.parse(text, "VN")
-		result = f"0{tmp.national_number}"
+		tmp = f"0{tmp.national_number}"
+		if 10 <= len(tmp) <= 11: # việt nam quy định 10 số (di động) & 11 số (sđt bàn)
+			result = tmp
 	except Exception as e: pass
 	return result
 
